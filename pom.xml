@@ -7,22 +7,13 @@
   <version>1.0-SNAPSHOT</version>
   <name>PhotoUploader Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-servlet</artifactId>
-      <version>2.21</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
-      <version>2.21</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
@@ -34,9 +25,32 @@
       <artifactId>jersey-container-servlet-core</artifactId>
       <version>2.21</version>
     </dependency>
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>3.0.2</version>
+    </dependency>
 
   </dependencies>
+
   <build>
     <finalName>PhotoUploader</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <server>TomcatServer</server>
+          <path>/PhotoUploader</path>
+          <username>StepanLu</username>
+          <password>5197692</password>
+        </configuration>
+      </plugin>
+    </plugins>
+
   </build>
+
 </project>

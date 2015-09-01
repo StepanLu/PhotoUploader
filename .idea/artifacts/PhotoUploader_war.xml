@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PhotoUploader:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="PhotoUploader.war">
+      <element id="artifact" artifact-name="PhotoUploader:war exploded" />
+    </root>
+  </artifact>
+</component>
