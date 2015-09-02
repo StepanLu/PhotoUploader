@@ -1,4 +1,4 @@
-package com.epam.project.resources;
+package com.epam.project.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

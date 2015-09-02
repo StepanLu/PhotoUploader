@@ -1,4 +1,4 @@
-package com.epam.project.resources;
+package com.epam.project.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,7 +16,7 @@ public class LoginAction {
     @Produces(MediaType.TEXT_HTML)
     public Response sayHtmlHello() throws URISyntaxException {
         java.net.URI location = new java.net.URI("/index.jsp");
-        return Response.seeOther(location).build();
+        return null;
     }
 }
 

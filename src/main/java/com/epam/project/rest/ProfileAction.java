@@ -1,4 +1,4 @@
-package com.epam.project.resources;
+package com.epam.project.rest;
 
 /**
  * Created by StepLuch on 01.09.15.
