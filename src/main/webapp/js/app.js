@@ -5,7 +5,7 @@
 
 // Declare app level module which depends on filters, and services
 
-var app = angular.module('photoUploader',['ngResource','ngRoute', 'ngCookies'])
+var app = angular.module('photoUploader',['ngResource','ngRoute', 'ngCookies', 'flow'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/login', {templateUrl: 'login.html', controller: 'loginCtrl'});
         $routeProvider.when('/user', {templateUrl: 'user.html', controller: 'userCtrl'});

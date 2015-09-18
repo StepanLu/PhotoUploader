@@ -1,1 +1,49 @@
-fghddfghdhdfhdfgh
+<div>
+    <p>{{userName}}</p>
+
+    <div ng-repeat="photo in userPhotos">
+        <img ng-src="http://localhost:8080/PhotoUploader/rest/photo/{{photo.photo_id}}" width="519" height="519">
+    </div>
+
+    <div ng-repeat="user in userList">
+        <p ng-click="goToUserProfile(user)">{{user.firstName}} {{user.lastName}} {{user.userLogin}}</p>
+    </div>
+
+
+    <!--<h1>Upload a File</h1>
+
+    <form action="rest/photo/upload" method="post" enctype="multipart/form-data">
+
+        <p>
+            Select a file : <input type="file" name="file" size="50" />
+        </p>
+
+        <input type="submit" value="Upload It" />
+    </form>-->
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div flow-init="{target: 'rest/photo/upload', testChunks:false}"
+     flow-file-success="$file.msg = $message">
+
+    <input type="file" flow-btn/>
+    Input OR Other element as upload button
+    <span class="btn" flow-btn>Upload File</span>
+
+    <button type="button" ng-click="upload($flow)">Upload on server!!!</button>
+
+
+    <table>
+        <tr ng-repeat="file in $flow.files">
+            <td>{{$index+1}}</td>
+            <td>{{file.name}}</td>
+            <td>{{file.msg}}</td>
+            <td><img flow-img="file" height="42"/></td>
+        </tr>
+    </table>
+</div>

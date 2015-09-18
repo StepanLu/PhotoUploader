@@ -4,19 +4,25 @@ import com.epam.project.domain.User;
 import com.epam.project.mongodb.converter.UserConverter;
 import com.mongodb.*;
 import org.bson.types.ObjectId;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by StepLuch on 03.09.15.
  */
+
+@Component
 public class MongoDBUserDAO {
 
+    private MongoClient mongo;
     private DBCollection col;
 
     public MongoDBUserDAO(MongoClient mongo) {
-        this.col = mongo.getDB("PhotoUploaderDB").getCollection("Users");
+        this.mongo = mongo;
+        DB db = mongo.getDB("PhotoUploderDB");
+        col = db.getCollection("users");
     }
 
     public User createPerson(User p) {
@@ -33,13 +39,13 @@ public class MongoDBUserDAO {
         this.col.update(query, UserConverter.toDBObject(p));
     }
 
-    public List<User> readAllPerson() {
-        List<User> data = new ArrayList<User>();
+    public JSONArray readAllPerson(String userId) throws JSONException {
+        JSONArray data = new JSONArray();
         DBCursor cursor = col.find();
         while (cursor.hasNext()) {
             DBObject doc = cursor.next();
-            User p = UserConverter.toUser(doc);
-            data.add(p);
+            JSONObject p = UserConverter.toJSONUser(doc);
+            data.put(p);
         }
         return data;
     }
@@ -54,6 +60,18 @@ public class MongoDBUserDAO {
         DBObject query = BasicDBObjectBuilder.start()
                 .append("_id", new ObjectId(p.getId())).get();
         DBObject data = this.col.findOne(query);
+        return UserConverter.toUser(data);
+    }
+
+    public User readPersonByLogin(String login) {
+        DBObject query = BasicDBObjectBuilder.start().append("login", login).get();
+        DBObject data = col.findOne(query);
+        return UserConverter.toUser(data);
+    }
+
+    public User readPersonById(String id) {
+        DBObject query = BasicDBObjectBuilder.start().append("_id", new ObjectId(id)).get();
+        DBObject data = col.findOne(query);
         return UserConverter.toUser(data);
     }
 }

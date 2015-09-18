@@ -3,7 +3,7 @@ database: PhotoUploaderDB
 collections: Users, Photos
 
 Users: {
-    _id
+    id
     firstName
     lastName
     email
@@ -11,7 +11,7 @@ Users: {
     role
     login
     photos{
-        _id
+        id
         uploadDate
         photo
         comments

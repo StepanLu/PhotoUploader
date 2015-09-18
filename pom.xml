@@ -12,7 +12,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -37,10 +37,17 @@
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
-      <artifactId>jersey-media-json-jackson</artifactId>
-      <version>2.4.1</version>
-      <scope>provided</scope>
+      <artifactId>jersey-media-multipart</artifactId>
+      <version>2.21</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.jvnet.mimepull</groupId>
+      <artifactId>mimepull</artifactId>
+      <version>1.9.3</version>
+    </dependency>
+
+
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
@@ -48,10 +55,10 @@
     </dependency>
 
     <dependency>
-      <groupId>org.glassfish.jersey.ext</groupId>
-      <artifactId>jersey-spring3</artifactId>
-      <version>2.21</version>
-    </dependency>
+    <groupId>org.glassfish.jersey.ext</groupId>
+    <artifactId>jersey-spring3</artifactId>
+    <version>2.21</version>
+  </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -72,6 +79,16 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
       <version>1.9.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+      <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
+      <version>2.21</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+      <artifactId>jersey-test-framework-provider-external</artifactId>
+      <version>2.21</version>
     </dependency>
 
 
